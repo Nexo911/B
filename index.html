@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todas las cosas que me gustan de ti</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{--primary:#ff6b8b;--primary-glow:0 0 15px rgba(255,107,139,0.7);--secondary:#ffb8c6;--bg:#121212;--card:#1e1e1e;--text:#ffffff;--text-secondary:#b3b3b3;--pink-1:#ff9ebb;--pink-2:#ff7ba3;--pink-3:#ff5d8f;}
+    body{font-family:'Segoe UI','Roboto',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;padding:15px;display:flex;justify-content:center;align-items:center;position:relative;overflow-x:hidden;background-image:radial-gradient(circle at 10% 20%,rgba(255,107,139,0.1) 0%,transparent 20%),radial-gradient(circle at 90% 80%,rgba(255,184,198,0.1) 0%,transparent 20%);transition:background 0.5s ease;}
+    body.light-theme{--bg:#f8f8f8;--card:#ffffff;--text:#333333;--text-secondary:#666666;background:#f8f8f8;background-image:radial-gradient(circle at 10% 20%,rgba(255,107,139,0.1) 0%,transparent 20%),radial-gradient(circle at 90% 80%,rgba(255,184,198,0.1) 0%,transparent 20%);}
+    .container{width:100%;max-width:100%;margin:0 auto;z-index:10;padding:10px;}
+    .list-container{background:rgba(30,30,30,0.95);padding:25px 20px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.1);position:relative;overflow:hidden;backdrop-filter:blur(5px);transition:background 0.5s ease,border-color 0.5s ease;}
+    body.light-theme .list-container{background:rgba(255,255,255,0.95);border:1px solid rgba(0,0,0,0.1);box-shadow:0 10px 30px rgba(0,0,0,0.1);}
+    .list-container::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,107,139,0.1) 0%,transparent 70%);z-index:-1;animation:rotate 20s linear infinite;}
+    @keyframes rotate{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+    .header{text-align:center;margin-bottom:25px;position:relative;z-index:1;padding:0 10px;}
+    .logo{font-size:50px;color:var(--primary);text-shadow:var(--primary-glow);margin-bottom:10px;animation:pulse 3s infinite;display:block;}
+    @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.1);}100%{transform:scale(1);}}
+    h1{font-size:28px;margin-bottom:15px;background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;letter-spacing:0.5px;}
+    .subtitle{color:var(--text-secondary);font-size:16px;margin:0 auto 20px;line-height:1.6;}
+    .things-list{display:grid;grid-template-columns:1fr;gap:15px;max-height:55vh;overflow-y:auto;padding:10px;scrollbar-width:thin;scrollbar-color:var(--primary) transparent;}
+    .things-list::-webkit-scrollbar{width:5px;}
+    .things-list::-webkit-scrollbar-track{background:transparent;}
+    .things-list::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px;}
+    .thing-item{background:rgba(0,0,0,0.4);border-radius:15px;padding:20px;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s ease;display:flex;align-items:flex-start;gap:12px;position:relative;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,0.2);}
+    body.light-theme .thing-item{background:rgba(255,255,255,0.9);border:1px solid rgba(0,0,0,0.05);box-shadow:0 3px 10px rgba(0,0,0,0.05);}
+    .thing-item:hover{transform:translateY(-5px);box-shadow:0 5px 15px rgba(255,107,139,0.4);border-color:rgba(255,107,139,0.5);}
+    .thing-item::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(255,107,139,0.1),transparent);z-index:-1;}
+    .thing-number{background:linear-gradient(135deg,var(--primary),var(--pink-3));width:40px;height:40px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-weight:bold;flex-shrink:0;box-shadow:var(--primary-glow);font-size:16px;}
+    .thing-text{font-size:15px;line-height:1.5;flex-grow:1;}
+    .floating-hearts{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+    .heart{position:absolute;font-size:18px;color:var(--primary);text-shadow:var(--primary-glow);opacity:0.7;z-index:0;top:-20px;animation:fall linear forwards;}
+    @keyframes fall{to{transform:translateY(105vh) rotate(360deg);}}
+    .love-message{text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);color:var(--text);font-size:16px;font-style:italic;line-height:1.6;}
+    body.light-theme .love-message{border-top:1px solid rgba(0,0,0,0.1);}
+    .signature{font-weight:700;color:var(--pink-1);margin-top:12px;font-size:18px;text-shadow:var(--primary-glow);letter-spacing:0.5px;}
+    .heart-decoration{color:var(--primary);font-size:20px;margin:0 4px;}
+    .counter{position:absolute;top:20px;right:20px;background:rgba(255,107,139,0.2);border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:bold;color:var(--pink-1);border:2px solid var(--primary);box-shadow:0 0 12px rgba(255,107,139,0.5);}
+    .special-item{background:linear-gradient(135deg,rgba(255,107,139,0.3),rgba(255,184,198,0.2));border:1px solid var(--primary);animation:glow 2s infinite alternate;}
+    @keyframes glow{from{box-shadow:0 0 8px rgba(255,107,139,0.4);}to{box-shadow:0 0 20px rgba(255,107,139,0.8);}}
+    .heart-btn{display:block;margin:25px auto 10px;background:linear-gradient(135deg,var(--primary),#ff4d73);color:white;border:none;padding:14px 25px;border-radius:50px;cursor:pointer;font-size:16px;font-weight:600;transition:all 0.3s;box-shadow:var(--primary-glow);position:relative;overflow:hidden;z-index:1;max-width:250px;}
+    .heart-btn:hover{transform:translateY(-3px);box-shadow:0 7px 20px rgba(255,107,139,0.5);}
+    .music-player{position:fixed;bottom:20px;right:20px;width:300px;background:rgba(30,30,30,0.9);border-radius:15px;padding:15px;box-shadow:0 5px 20px rgba(0,0,0,0.4);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);z-index:100;transition:transform 0.3s ease,background 0.5s ease;transform:translateY(0);}
+    body.light-theme .music-player{background:rgba(255,255,255,0.9);border:1px solid rgba(0,0,0,0.1);box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+    .player-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+    .player-title{font-size:14px;color:var(--text-secondary);font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+    .player-controls{display:flex;gap:8px;}
+    .player-btn{background:rgba(255,255,255,0.1);border:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text);cursor:pointer;transition:all 0.3s;}
+    .player-btn:hover{background:rgba(255,255,255,0.2);transform:scale(1.1);}
+    body.light-theme .player-btn{background:rgba(0,0,0,0.05);}
+    body.light-theme .player-btn:hover{background:rgba(0,0,0,0.1);}
+    .song-info{display:flex;align-items:center;gap:12px;margin-bottom:15px;}
+    .album-art{width:50px;height:50px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--pink-3));display:flex;align-items:center;justify-content:center;color:white;font-size:20px;}
+    .song-details{flex:1;}
+    .song-name{font-size:16px;font-weight:600;margin-bottom:3px;}
+    .song-artist{font-size:13px;color:var(--text-secondary);}
+    .progress-container{height:4px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;margin-bottom:15px;}
+    body.light-theme .progress-container{background:rgba(0,0,0,0.1);}
+    .progress-bar{height:100%;width:30%;background:var(--primary);border-radius:2px;}
+    .time-info{display:flex;justify-content:space-between;font-size:12px;color:var(--text-secondary);}
+    .theme-toggle{position:fixed;top:20px;left:20px;background:rgba(255,255,255,0.1);border:none;width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text);cursor:pointer;transition:all 0.3s;z-index:100;box-shadow:0 3px 10px rgba(0,0,0,0.2);}
+    .theme-toggle:hover{background:rgba(255,255,255,0.2);transform:scale(1.1);}
+    body.light-theme .theme-toggle{background:rgba(0,0,0,0.05);}
+    body.light-theme .theme-toggle:hover{background:rgba(0,0,0,0.1);}
+    @media (min-width:768px){.container{max-width:700px;padding:20px;}.list-container{padding:35px 30px;}.things-list{grid-template-columns:repeat(2,1fr);max-height:60vh;gap:20px;}.thing-text{font-size:16px;}}
+    @media (max-width:480px){.music-player{width:calc(100% - 40px);left:20px;right:auto;}}
+  </style>
+</head>
+<body>
+  <div class="floating-hearts" id="heartsContainer"></div>
+  <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+  
+  <div class="container">
+    <div class="list-container">
+      <div class="counter">84</div>
+      <div class="header">
+        <div class="logo"><i class="fas fa-heart"></i></div>
+        <h1>Todas las cosas que me gustan de ti</h1>
+        <p class="subtitle">Cada detalle, cada momento, cada parte de ti que ha llenado mi vida de amor y alegría</p>
+      </div>
+
+      <div class="things-list" id="thingsList"></div>
+      
+      <button class="heart-btn" id="heartBtn"><i class="fas fa-heart"></i> Te amo princesa</button>
+      
+      <div class="love-message">
+        <p>Estas son solo algunas de las infinitas razones por las que te amo. Eres mi todo, mi razón, mi inspiración.</p>
+        <p class="signature">Love you princess <i class="fas fa-heart heart-decoration"></i></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="music-player" id="musicPlayer">
+    <div class="player-header">
+      <div class="player-title">Currently playing</div>
+      <div class="player-controls">
+        <button class="player-btn" id="prevBtn"><i class="fas fa-step-backward"></i></button>
+        <button class="player-btn" id="playBtn"><i class="fas fa-play"></i></button>
+        <button class="player-btn" id="nextBtn"><i class="fas fa-step-forward"></i></button>
+      </div>
+    </div>
+    
+    <div class="song-info">
+      <div class="album-art"><i class="fas fa-music"></i></div>
+      <div class="song-details">
+        <div class="song-name" id="currentSong">Canción 1</div>
+        <div class="song-artist" id="currentArtist">Artista</div>
+      </div>
+    </div>
+    
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <div class="time-info">
+      <span id="currentTime">0:00</span>
+      <span id="totalTime">0:00</span>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const heartsContainer = document.getElementById('heartsContainer');
+      const thingsList = document.getElementById('thingsList');
+      const heartBtn = document.getElementById('heartBtn');
+      const themeToggle = document.getElementById('themeToggle');
+      const musicPlayer = document.getElementById('musicPlayer');
+      const playBtn = document.getElementById('playBtn');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const progressBar = document.getElementById('progressBar');
+      const currentSongEl = document.getElementById('currentSong');
+      const currentArtistEl = document.getElementById('currentArtist');
+      const currentTimeEl = document.getElementById('currentTime');
+      const totalTimeEl = document.getElementById('totalTime');
+      
+      const songs = [
+        { title: "Canción 1", artist: "Artista 1", file: "musica1.mp3" },
+        { title: "Canción 2", artist: "Artista 2", file: "musica2.mp3" },
+        { title: "Canción 3", artist: "Artista 3", file: "musica3.mp3" },
+        { title: "Canción 4", artist: "Artista 4", file: "musica4.mp3" }
+      ];
+      
+      let currentSongIndex = 0;
+      let audio = new Audio();
+      let isPlaying = false;
+      
+      function initPlayer() {
+        loadSong(currentSongIndex);
+        playBtn.addEventListener('click', togglePlay);
+        prevBtn.addEventListener('click', prevSong);
+        nextBtn.addEventListener('click', nextSong);
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('ended', nextSong);
+        audio.addEventListener('loadedmetadata', function() {
+          totalTimeEl.textContent = formatTime(audio.duration);
+        });
+      }
+      
+      function loadSong(index) {
+        audio.src = songs[index].file;
+        currentSongEl.textContent = songs[index].title;
+        currentArtistEl.textContent = songs[index].artist;
+      }
+      
+      function togglePlay() {
+        if (isPlaying) {
+          pauseSong();
+        } else {
+          playSong();
+        }
+      }
+      
+      function playSong() {
+        audio.play();
+        isPlaying = true;
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        musicPlayer.classList.add('playing');
+      }
+      
+      function pauseSong() {
+        audio.pause();
+        isPlaying = false;
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        musicPlayer.classList.remove('playing');
+      }
+      
+      function prevSong() {
+        currentSongIndex--;
+        if (currentSongIndex < 0) {
+          currentSongIndex = songs.length - 1;
+        }
+        loadSong(currentSongIndex);
+        playSong();
+      }
+      
+      function nextSong() {
+        currentSongIndex++;
+        if (currentSongIndex >= songs.length) {
+          currentSongIndex = 0;
+        }
+        loadSong(currentSongIndex);
+        playSong();
+      }
+      
+      function updateProgress() {
+        const progressPercent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+      }
+      
+      function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+      
+      themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        themeToggle.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      });
+      
+      const things = [
+        "Tus ojos","Tus sentimientos","Tu forma de ser","Tu carita bonita","Tu pelito hermoso",
+        "Tu risa kiut","Tu amor","Tus regalos","Tu cariño","Tu voz","Tus ojitos","Tu mirada",
+        "Tu lealtad","Tu paciencia","Tu apoyo","Tu fuerza","Tu escencia",
+        "Por la confianza que te podia tener","Por escucharme cuando lo necesitaba","Por ser el todo de mi vida",
+        "Por amarme demasiado","Por tus palabras en mis peores días","Por hacerme sentir seguro",
+        "Por conocerme incluso en silencio","Por darme tu tiempo","Por secar mis lágrimas sin que estuvieras cerca",
+        "Por aceptarme tal como soy","Por cuidar mi corazón","Por compartir tu mundo conmigo",
+        "Por tu ternura en los momentos simples","Por hacer de lo simple algo especial","Por tu amor tan honesto",
+        "Por tu manera de decir 'te amo'","Por nuestros errores","Por no cansarte de mí",
+        "Por intentar incluso cuando no teníamos","Por poder construir algo bonito","Por regalarme tu amor",
+        "Tus ocurrencias raras","Tus enojos tiernos","Tus mensajes lindos","Tus palabras sinceras",
+        "Tus chistes malos","Tus detalles chiquitos","Tus gestos dulces","Tus días malos",
+        "Tus promesas cumplidas","Tus te quieros","Tus ocurrencias lindas","Por tu forma de amar",
+        "Por quedarte cuando dudaba","Por reírte conmigo","Por preocuparte por mi","Tus palabras suaves",
+        "Los días contigo","Los 'buenos días' que me hacían sonreír","Los abrazos que soñaba darte",
+        "Los minutos que parecían eternos sin ti","Los reencuentros soñados","Los días donde el amor vencía la distancia",
+        "Las promesas de que todo valía la pena","Las canciones que escuchábamos juntos pero lejos",
+        "Tus mensajes de 'te amo'","Por hacerme sentir cerca","Por imaginar un futuro conmigo",
+        "Por quedarte en los días difíciles","Por demostrar que el amor todo lo puede","Por hacerme sentir elegido",
+        "Las sorpresas virtuales","Tus buenas noches","Tus detalles inesperados","Tus mensajes llenos de amor",
+        "Por encontrar formas de hacerme sonreír","Por jugar conmigo","Por hacerme sentir único en tu vida",
+        "Las llamadas que hicimos para dormir (me sentí muy cerca de ti ese día)","Las despedidas que nunca queríamos hacer",
+        "Tus palabras que me devolvían la confianza","Por hacerme sentir seguro de nuestro amor",
+        "Por los errores aprendidos juntos","Por darme el mejor amor que jamás imaginé tener",
+        "Los mensajes que enviabas cuando más te necesitaba","Las canciones que dedicábamos, aunque sea a distancia",
+        "Por ser tú mi niña, mi princesa, mi todo 💗"
+      ];
+
+      things.forEach((thing, index) => {
+        const thingItem = document.createElement('div');
+        thingItem.className = 'thing-item';
+        if (index === things.length - 1) thingItem.classList.add('special-item');
+        thingItem.innerHTML = `<div class="thing-number">${index + 1}</div><div class="thing-text">${thing}</div>`;
+        thingsList.appendChild(thingItem);
+      });
+
+      function createHearts() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '<i class="fas fa-heart"></i>';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+        heart.style.fontSize = Math.random() * 15 + 8 + 'px';
+        heart.style.opacity = Math.random() * 0.5 + 0.3;
+        heartsContainer.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }
+
+      function startHeartRain() {
+        setInterval(createHearts, 200);
+      }
+
+      heartBtn.addEventListener('click', function() {
+        const newHeart = document.createElement('div');
+        newHeart.style.position = 'fixed';
+        newHeart.style.fontSize = '40px';
+        newHeart.style.color = '#ff6b8b';
+        newHeart.style.textShadow = '0 0 15px rgba(255, 107, 139, 0.7)';
+        newHeart.style.zIndex = '100';
+        newHeart.style.top = '50%';
+        newHeart.style.left = '50%';
+        newHeart.style.transform = 'translate(-50%, -50%) scale(0)';
+        newHeart.style.opacity = '0';
+        newHeart.style.transition = 'all 0.5s ease';
+        newHeart.innerHTML = '<i class="fas fa-heart"></i>';
+        document.body.appendChild(newHeart);
+        
+        setTimeout(() => {
+          newHeart.style.transform = 'translate(-50%, -50%) scale(1.5)';
+          newHeart.style.opacity = '1';
+        }, 10);
+        
+        setTimeout(() => {
+          newHeart.style.transform = 'translate(-50%, -50%) scale(1)';
+        }, 200);
+        
+        setTimeout(() => {
+          newHeart.style.transform = 'translate(-50%, -50%) scale(1.2)';
+        }, 400);
+        
+        setTimeout(() => {
+          newHeart.style.transform = 'translate(-50%, -50%) scale(1)';
+          newHeart.style.opacity = '0.7';
+        }, 600);
+        
+        setTimeout(() => {
+          newHeart.remove();
+        }, 1200);
+      });
+      
+      startHeartRain();
+      initPlayer();
+      
+      setTimeout(() => {
+        const items = document.querySelectorAll('.thing-item');
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(15px)';
+            item.style.transition = 'all 0.4s ease';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 10);
+          }, index * 40);
+        });
+      }, 300);
+    });
+  </script>
+</body>
+</html>
