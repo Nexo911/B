@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todas las cosas que me gustan de ti</title>
+  <title>100 Razones por las que te Amo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -89,12 +89,8 @@
     }
     
     @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
     
     .header {
@@ -115,15 +111,9 @@
     }
     
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-      100% {
-        transform: scale(1);
-      }
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
     
     h1 {
@@ -247,9 +237,7 @@
     }
     
     @keyframes fall {
-      to {
-        transform: translateY(105vh) rotate(360deg);
-      }
+      to { transform: translateY(105vh) rotate(360deg); }
     }
     
     .love-message {
@@ -307,12 +295,8 @@
     }
     
     @keyframes glow {
-      from {
-        box-shadow: 0 0 8px rgba(255, 107, 139, 0.4);
-      }
-      to {
-        box-shadow: 0 0 20px rgba(255, 107, 139, 0.8);
-      }
+      from { box-shadow: 0 0 8px rgba(255, 107, 139, 0.4); }
+      to { box-shadow: 0 0 20px rgba(255, 107, 139, 0.8); }
     }
     
     .heart-btn {
@@ -337,144 +321,6 @@
     .heart-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 7px 20px rgba(255, 107, 139, 0.5);
-    }
-    
-    .music-player {
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-      width: 170px;
-      height: auto;
-      background: rgba(30, 30, 30, 0.9);
-      border-radius: 15px;
-      padding: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      z-index: 100;
-      transition: transform 0.3s ease, background 0.5s ease;
-      transform: translateY(0);
-    }
-    
-    body.light-theme .music-player {
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .player-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-    
-    .player-title {
-      font-size: 11px;
-      color: var(--text-secondary);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .player-controls {
-      display: flex;
-      gap: 5px;
-    }
-    
-    .player-btn {
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text);
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 10px;
-    }
-    
-    .player-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
-    }
-    
-    body.light-theme .player-btn {
-      background: rgba(0, 0, 0, 0.05);
-    }
-    
-    body.light-theme .player-btn:hover {
-      background: rgba(0, 0, 0, 0.1);
-    }
-    
-    .song-info {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    
-    .album-art {
-      width: 35px;
-      height: 35px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--primary), var(--pink-3));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 14px;
-    }
-    
-    .song-details {
-      flex: 1;
-      overflow: hidden;
-    }
-    
-    .song-name {
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 2px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    
-    .song-artist {
-      font-size: 10px;
-      color: var(--text-secondary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    
-    .progress-container {
-      height: 3px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 2px;
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
-    
-    body.light-theme .progress-container {
-      background: rgba(0, 0, 0, 0.1);
-    }
-    
-    .progress-bar {
-      height: 100%;
-      width: 30%;
-      background: var(--primary);
-      border-radius: 2px;
-    }
-    
-    .time-info {
-      display: flex;
-      justify-content: space-between;
-      font-size: 9px;
-      color: var(--text-secondary);
     }
     
     .theme-toggle {
@@ -529,15 +375,6 @@
         font-size: 16px;
       }
     }
-    
-    @media (max-width: 480px) {
-      .music-player {
-        width: calc(100% - 30px);
-        left: 15px;
-        right: auto;
-        bottom: 10px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -546,11 +383,11 @@
   
   <div class="container">
     <div class="list-container">
-      <div class="counter">86</div>
+      <div class="counter">100</div>
       <div class="header">
         <div class="logo"><i class="fas fa-heart"></i></div>
-        <h1>Todas las cosas que me gustan de ti</h1>
-        <p class="subtitle">Cada detalle, cada momento, cada parte de ti me ha llenado de tu amor muakk.</p>
+        <h1>100 Razones por las que te Amo</h1>
+        <p class="subtitle">Cada detalle, cada momento, cada parte de ti me ha llenado de tu amor</p>
       </div>
 
       <div class="things-list" id="thingsList"></div>
@@ -558,36 +395,8 @@
       <button class="heart-btn" id="heartBtn"><i class="fas fa-heart"></i></button>
       
       <div class="love-message">
-        <p>Estas son solo algunas de las infinitas razones por las que te amo my loveee.</p>
+        <p>Estas son solo algunas de las infinitas razones por las que te amo muakk.</p>
       </div>
-    </div>
-  </div>
-  
-  <div class="music-player" id="musicPlayer">
-    <div class="player-header">
-      <div class="player-title">Reproduciendo</div>
-      <div class="player-controls">
-        <button class="player-btn" id="prevBtn"><i class="fas fa-step-backward"></i></button>
-        <button class="player-btn" id="playBtn"><i class="fas fa-play"></i></button>
-        <button class="player-btn" id="nextBtn"><i class="fas fa-step-forward"></i></button>
-      </div>
-    </div>
-    
-    <div class="song-info">
-      <div class="album-art"><i class="fas fa-music"></i></div>
-      <div class="song-details">
-        <div class="song-name" id="currentSong">Cinnamon Girl</div>
-        <div class="song-artist" id="currentArtist">Lana del rey</div>
-      </div>
-    </div>
-    
-    <div class="progress-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-    
-    <div class="time-info">
-      <span id="currentTime">0:00</span>
-      <span id="totalTime">0:00</span>
     </div>
   </div>
 
@@ -597,129 +406,43 @@
       const thingsList = document.getElementById('thingsList');
       const heartBtn = document.getElementById('heartBtn');
       const themeToggle = document.getElementById('themeToggle');
-      const musicPlayer = document.getElementById('musicPlayer');
-      const playBtn = document.getElementById('playBtn');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const progressBar = document.getElementById('progressBar');
-      const currentSongEl = document.getElementById('currentSong');
-      const currentArtistEl = document.getElementById('currentArtist');
-      const currentTimeEl = document.getElementById('currentTime');
-      const totalTimeEl = document.getElementById('totalTime');
-      
-      const songs = [
-        { title: "Cinnamon Girl", artist: "Lana del rey", file: "musica1.mp3" },
-        { title: "Something About You", artist: "Eyedress & Dent May", file: "musica2.mp3" },
-        { title: "Yebbas Heartbreak", artist: "Drake", file: "musica3.mp3" },
-        { title: "Apocalypse", artist: "After sex", file: "musica4.mp3" }
-      ];
-      
-      let currentSongIndex = 0;
-      let audio = new Audio();
-      let isPlaying = false;
-      
-      function initPlayer() {
-        loadSong(currentSongIndex);
-        playBtn.addEventListener('click', togglePlay);
-        prevBtn.addEventListener('click', prevSong);
-        nextBtn.addEventListener('click', nextSong);
-        audio.addEventListener('timeupdate', updateProgress);
-        audio.addEventListener('ended', nextSong);
-        audio.addEventListener('loadedmetadata', function() {
-          totalTimeEl.textContent = formatTime(audio.duration);
-        });
-      }
-      
-      function loadSong(index) {
-        audio.src = songs[index].file;
-        currentSongEl.textContent = songs[index].title;
-        currentArtistEl.textContent = songs[index].artist;
-      }
-      
-      function togglePlay() {
-        if (isPlaying) {
-          pauseSong();
-        } else {
-          playSong();
-        }
-      }
-      
-      function playSong() {
-        audio.play();
-        isPlaying = true;
-        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-        musicPlayer.classList.add('playing');
-      }
-      
-      function pauseSong() {
-        audio.pause();
-        isPlaying = false;
-        playBtn.innerHTML = '<i class="fas fa-play"></i>';
-        musicPlayer.classList.remove('playing');
-      }
-      
-      function prevSong() {
-        currentSongIndex--;
-        if (currentSongIndex < 0) {
-          currentSongIndex = songs.length - 1;
-        }
-        loadSong(currentSongIndex);
-        playSong();
-      }
-      
-      function nextSong() {
-        currentSongIndex++;
-        if (currentSongIndex >= songs.length) {
-          currentSongIndex = 0;
-        }
-        loadSong(currentSongIndex);
-        playSong();
-      }
-      
-      function updateProgress() {
-        const progressPercent = (audio.currentTime / audio.duration) * 100;
-        progressBar.style.width = `${progressPercent}%`;
-        currentTimeEl.textContent = formatTime(audio.currentTime);
-      }
-      
-      function formatTime(seconds) {
-        const mins = Math.floor(seconds / 60);
-        const secs = Math.floor(seconds % 60);
-        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-      }
-      
-      themeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('light-theme');
-        const isLight = document.body.classList.contains('light-theme');
-        themeToggle.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-      });
       
       const things = [
-        "Tus ojos","Tus sentimientos","Tu pelo","Tu corazón","Tus enojos","Tu","Tu voz","Tu forma de ser","Tu carita bonita","Tu pelito hermoso",
-        "Tu risa kiut","Tu amor","Tus regalos","Tu cariño","Tu voz","Tus ojitos","Tu mirada",
-        "Tu lealtad","Tu paciencia","Tu apoyo","Tu fuerza","Tu escencia",
-        "Por la confianza que te podia tener","Por escucharme cuando lo necesitaba","Por ser el todo de mi vida",
-        "Por amarme demasiado","Por tus palabras en mis peores días","Por hacerme sentir seguro",
-        "Por conocerme incluso en silencio","Por darme tu tiempo","Por secar mis lágrimas sin que estuvieras cerca",
-        "Por aceptarme tal como soy","Por cuidar mi corazón","Por compartir tu mundo conmigo",
-        "Por tu ternura en los momentos simples","Por hacer de lo simple algo especial","Por tu amor tan honesto",
-        "Por tu manera de decir 'te amo'","Por nuestros errores","Por no cansarte de mí",
-        "Por intentar incluso cuando no teníamos","Por poder construir algo bonito","Por regalarme tu amor",
-        "Tus ocurrencias raras","Tus enojos tiernos","Tus mensajes lindos","Tus palabras sinceras",
-        "Tus chistes malos","Tus detalles chiquitos","Tus gestos dulces","Tus días malos",
-        "Tus promesas cumplidas","Tus te quieros","Tus ocurrencias lindas","Por tu forma de amar",
-        "Por quedarte cuando dudaba","Por reírte conmigo","Por preocuparte por mi","Tus palabras suaves",
-        "Los días contigo","Los 'buenos días' que me hacían sonreír","Los abrazos que soñaba darte",
-        "Los minutos que parecían eternos sin ti","Los reencuentros soñados","Los días donde el amor vencía la distancia",
-        "Las promesas de que todo valía la pena","Las canciones que escuchábamos juntos pero lejos",
-        "Tus mensajes de 'te amo'","Por hacerme sentir cerca","Por imaginar un futuro conmigo",
-        "Por quedarte en los días difíciles","Por demostrar que el amor todo lo puede","Por hacerme sentir elegido",
-        "Las sorpresas virtuales","Tus buenas noches","Tus detalles inesperados","Tus mensajes llenos de amor",
-        "Por encontrar formas de hacerme sonreír","Por jugar conmigo","Por hacerme sentir único en tu vida",
-        "Las llamadas que hicimos para dormir (me sentí muy cerca de ti ese día)","Las despedidas que nunca queríamos hacer",
-        "Tus palabras que me devolvían la confianza","Por hacerme sentir seguro de nuestro amor",
-        "Por los errores aprendidos juntos","Por darme el mejor amor que jamás imaginé tener",
-        "Los mensajes que enviabas cuando más te necesitaba","Las canciones que dedicábamos, aunque sea a distancia",
+        "Tus ojos", "Tus sentimientos", "Tu pelo", "Tu corazón", "Tus enojos", "Tu", "Tu voz",
+        "Tu forma de ser", "Tu carita bonita", "Tu pelito hermoso", "Tu risa kiut", "Tu amor",
+        "Tus regalos", "Tu cariño", "Tus ojitos", "Tu mirada", "Tu lealtad", "Tu paciencia",
+        "Tu apoyo", "Tu fuerza", "Tu escencia", "Por estar en mi vida", "Por ser mi vida",
+        "Por la confianza que te podía tener", "Por escucharme cuando lo necesitaba",
+        "Por ser el todo de mi vida", "Por amarme demasiado", "Por tus palabras en mis peores días",
+        "Por hacerme sentir seguro", "Por conocerme incluso en silencio", "Por darme tu tiempo",
+        "Por secar mis lágrimas sin que estuvieras cerca", "Por aceptarme tal como soy",
+        "Por cuidar mi corazón", "Por compartir tu mundo conmigo",
+        "Por tu ternura en los momentos simples", "Por hacer de lo simple algo especial",
+        "Por tu amor tan honesto", "Por tu manera de decir 'te amo'", "Por nuestros errores",
+        "Por no cansarte de mí", "Por intentar incluso cuando no teníamos",
+        "Por poder construir algo bonito", "Por regalarme tu amor", "Tus ocurrencias",
+        "Tus enojos tiernos", "Tus mensajes lindos", "Tus palabras sinceras",
+        "Tus chistes malos", "Tus detalles chiquitos", "Tus gestos dulces", "Tus días malos",
+        "Por amarme tanto", "Tus promesas cumplidas", "Tus te quieros",
+        "Por tu forma de amar", "Por quedarte cuando dudaba", "Por reírte conmigo",
+        "Por preocuparte por mí", "Tus palabras suaves", "Por tocar el fondo de mí sin tocarme",
+        "Los días contigo", "Los 'buenos días' que me hacían sonreír",
+        "Los abrazos que soñaba darte", "Por escucharme", "Los minutos que parecían eternos sin ti",
+        "Los reencuentros soñados", "Los días donde el amor vencía la distancia",
+        "Las promesas de que todo valía la pena",
+        "Las canciones que escuchábamos juntos pero lejos", "Tus mensajes de 'te amo'",
+        "Por hacerme sentir cerca", "Por imaginar un futuro conmigo",
+        "Por quedarte en los días difíciles", "Por demostrar que el amor todo lo puede",
+        "Por hacerme sentir elegido", "Las sorpresas virtuales", "Tus buenas noches",
+        "Tus detalles inesperados", "Por encontrar formas de hacerme sonreír", "Por jugar conmigo",
+        "Por hacerme sentir único en tu vida",
+        "Las llamadas que hicimos para dormir (me sentí muy cerca de ti ese día)",
+        "Las despedidas que nunca queríamos hacer",
+        "Tus palabras que me devolvían la confianza",
+        "Por hacerme sentir seguro de nuestro amor", "Por los errores aprendidos juntos",
+        "Por darme el mejor amor que jamás imaginé tener",
+        "Los mensajes que enviabas cuando más te necesitaba",
+        "Las canciones que dedicábamos, aunque sea a distancia",
         "Por ser tú mi niña, mi princesa, mi todo 💗"
       ];
 
@@ -785,8 +508,13 @@
         }, 1200);
       });
       
+      themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-theme');
+        const isLight = document.body.classList.contains('light-theme');
+        themeToggle.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      });
+      
       startHeartRain();
-      initPlayer();
       
       setTimeout(() => {
         const items = document.querySelectorAll('.thing-item');
