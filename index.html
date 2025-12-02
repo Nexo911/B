@@ -1,66 +1,459 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Qué asco das bro</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #111;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background-image: radial-gradient(circle at 20% 30%, rgba(255, 107, 139, 0.15), transparent 50%), radial-gradient(circle at 80% 70%, rgba(255, 184, 198, 0.1), transparent 50%);
-      text-align: center;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 600px;
-      background: #1e1e1e;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 0 30px rgba(255, 107, 139, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    h1 {
-      font-size: 26px;
-      margin-bottom: 20px;
-      color: #ff6b8b;
-      text-shadow: 0 0 10px rgba(255, 107, 139, 0.7);
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .heart {
-      font-size: 40px;
-      color: #ff6b8b;
-      animation: pulse 2s infinite;
-      margin-bottom: 20px;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="heart"><i class="fas fa-heart-broken"></i></div>
-    <h1>Qué asco das bro</h1>
-    <p>Será linda por fuera, pero por dentro eres una mierda. Porfa mejora.</p>
-  </div>
-</body>
-</html>
+diff --git a/index.html b/index.html
+index 273db3829b57af56553c55bde1308a4a0a2d87f1..2a01d714d3d2b50970df3baaef5f158c4662fc1b 100644
+--- a/index.html
++++ b/index.html
+@@ -1,66 +1,388 @@
+-<!DOCTYPE html>
+-<html lang="es">
+-<head>
+-  <meta charset="UTF-8" />
+-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+-  <title>Qué asco das bro</title>
+-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+-  <style>
+-    body {
+-      margin: 0;
+-      padding: 0;
+-      font-family: 'Segoe UI', sans-serif;
+-      background: #111;
+-      color: #fff;
+-      display: flex;
+-      align-items: center;
+-      justify-content: center;
+-      min-height: 100vh;
+-      background-image: radial-gradient(circle at 20% 30%, rgba(255, 107, 139, 0.15), transparent 50%), radial-gradient(circle at 80% 70%, rgba(255, 184, 198, 0.1), transparent 50%);
+-      text-align: center;
+-      padding: 20px;
+-    }
+-
+-    .container {
+-      max-width: 600px;
+-      background: #1e1e1e;
+-      border-radius: 20px;
+-      padding: 30px;
+-      box-shadow: 0 0 30px rgba(255, 107, 139, 0.3);
+-      border: 1px solid rgba(255, 255, 255, 0.1);
+-    }
+-
+-    h1 {
+-      font-size: 26px;
+-      margin-bottom: 20px;
+-      color: #ff6b8b;
+-      text-shadow: 0 0 10px rgba(255, 107, 139, 0.7);
+-    }
+-
+-    p {
+-      font-size: 18px;
+-      line-height: 1.6;
+-    }
+-
+-    .heart {
+-      font-size: 40px;
+-      color: #ff6b8b;
+-      animation: pulse 2s infinite;
+-      margin-bottom: 20px;
+-    }
+-
+-    @keyframes pulse {
+-      0% { transform: scale(1); }
+-      50% { transform: scale(1.15); }
+-      100% { transform: scale(1); }
+-    }
+-  </style>
+-</head>
+-<body>
+-  <div class="container">
+-    <div class="heart"><i class="fas fa-heart-broken"></i></div>
+-    <h1>Qué asco das bro</h1>
+-    <p>Será linda por fuera, pero por dentro eres una mierda. Porfa mejora.</p>
+-  </div>
+-</body>
+-</html>
++<!DOCTYPE html>
++<html lang="es">
++<head>
++  <meta charset="UTF-8" />
++  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++  <meta name="description" content="Escucha la Estación Chill, una lista de música local con controles accesibles y lista para subir a tu hosting." />
++  <title>Estación Chill</title>
++  <link rel="preconnect" href="https://fonts.googleapis.com">
++  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
++  <style>
++    :root {
++      --bg: #0f1117;
++      --panel: #161925;
++      --accent: #a879ff;
++      --text: #e6e9f5;
++      --muted: #9aa3c0;
++      --border: #242a3c;
++      --glow: rgba(168, 121, 255, 0.35);
++    }
++
++    * {
++      box-sizing: border-box;
++    }
++
++    body {
++      margin: 0;
++      min-height: 100vh;
++      background: radial-gradient(circle at 15% 20%, rgba(168, 121, 255, 0.12), transparent 30%),
++                  radial-gradient(circle at 80% 15%, rgba(86, 206, 255, 0.1), transparent 28%),
++                  radial-gradient(circle at 75% 75%, rgba(255, 177, 133, 0.1), transparent 30%),
++                  var(--bg);
++      color: var(--text);
++      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
++      display: flex;
++      justify-content: center;
++      padding: 32px 16px 48px;
++    }
++
++    .shell {
++      width: min(1080px, 100%);
++    }
++
++    .hero {
++      display: grid;
++      grid-template-columns: 1.1fr 0.9fr;
++      gap: 28px;
++      align-items: center;
++      margin-bottom: 32px;
++    }
++
++    .card {
++      background: var(--panel);
++      border: 1px solid var(--border);
++      border-radius: 20px;
++      padding: 24px;
++      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.01);
++    }
++
++    .hero h1 {
++      margin: 0 0 12px;
++      font-size: clamp(28px, 3vw, 38px);
++      letter-spacing: -0.02em;
++    }
++
++    .hero p {
++      margin: 0 0 18px;
++      color: var(--muted);
++      line-height: 1.6;
++      font-size: 16px;
++    }
++
++    .tags {
++      display: flex;
++      flex-wrap: wrap;
++      gap: 10px;
++    }
++
++    .tag {
++      padding: 10px 14px;
++      border-radius: 999px;
++      background: rgba(168, 121, 255, 0.12);
++      color: #d9c6ff;
++      border: 1px solid rgba(168, 121, 255, 0.25);
++      font-weight: 600;
++      font-size: 13px;
++      letter-spacing: 0.01em;
++      text-transform: uppercase;
++    }
++
++    .actions {
++      display: flex;
++      flex-wrap: wrap;
++      gap: 10px;
++      margin-top: 18px;
++    }
++
++    .cta {
++      display: inline-flex;
++      align-items: center;
++      gap: 10px;
++      padding: 12px 18px;
++      border-radius: 12px;
++      background: linear-gradient(120deg, #8b5cf6, #6366f1);
++      color: #fff;
++      text-decoration: none;
++      font-weight: 700;
++      letter-spacing: 0.01em;
++      box-shadow: 0 10px 30px var(--glow);
++      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
++    }
++
++    .cta:hover {
++      transform: translateY(-2px);
++      box-shadow: 0 18px 35px var(--glow);
++    }
++
++    .cta.secondary {
++      background: transparent;
++      color: #d9c6ff;
++      border: 1px solid rgba(168, 121, 255, 0.35);
++      box-shadow: none;
++    }
++
++    .cta.secondary:hover {
++      background: rgba(168, 121, 255, 0.08);
++      box-shadow: 0 12px 26px rgba(168, 121, 255, 0.12);
++    }
++
++    .visual {
++      position: relative;
++      height: 100%;
++    }
++
++    .visual::before,
++    .visual::after {
++      content: '';
++      position: absolute;
++      inset: 0;
++      border-radius: 18px;
++      filter: blur(30px);
++      opacity: 0.7;
++    }
++
++    .visual::before {
++      background: linear-gradient(135deg, rgba(168, 121, 255, 0.9), rgba(86, 206, 255, 0.6));
++      transform: translate(-12px, -10px);
++    }
++
++    .visual::after {
++      background: linear-gradient(135deg, rgba(255, 177, 133, 0.9), rgba(99, 102, 241, 0.8));
++      transform: translate(16px, 12px);
++    }
++
++    .visual-content {
++      position: relative;
++      background: rgba(255, 255, 255, 0.04);
++      border: 1px solid rgba(255, 255, 255, 0.08);
++      border-radius: 18px;
++      padding: 24px;
++      backdrop-filter: blur(8px);
++      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
++    }
++
++    .visual h2 {
++      margin: 0;
++      font-size: 22px;
++    }
++
++    .visual p {
++      margin: 8px 0 0;
++      color: var(--muted);
++      line-height: 1.6;
++    }
++
++    .playlist-header {
++      display: flex;
++      justify-content: space-between;
++      align-items: center;
++      margin: 10px 0 16px;
++      gap: 12px;
++      flex-wrap: wrap;
++    }
++
++    .playlist-title {
++      font-size: 18px;
++      margin: 0;
++      letter-spacing: 0.01em;
++    }
++
++    .pill {
++      padding: 8px 12px;
++      border-radius: 999px;
++      background: rgba(255, 255, 255, 0.04);
++      color: var(--muted);
++      font-weight: 600;
++      font-size: 13px;
++      border: 1px solid rgba(255, 255, 255, 0.06);
++    }
++
++    .grid {
++      display: grid;
++      gap: 14px;
++      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
++    }
++
++    .track {
++      background: rgba(255, 255, 255, 0.03);
++      border: 1px solid var(--border);
++      border-radius: 14px;
++      padding: 14px 16px 12px;
++      display: flex;
++      flex-direction: column;
++      gap: 8px;
++      transition: border-color 0.2s ease, box-shadow 0.2s ease;
++    }
++
++    .track.active {
++      border-color: rgba(168, 121, 255, 0.7);
++      box-shadow: 0 12px 24px rgba(168, 121, 255, 0.12);
++    }
++
++    .track-header {
++      display: flex;
++      align-items: center;
++      gap: 12px;
++    }
++
++    .badge {
++      width: 38px;
++      height: 38px;
++      border-radius: 12px;
++      background: linear-gradient(145deg, rgba(139, 92, 246, 0.9), rgba(99, 102, 241, 0.9));
++      display: grid;
++      place-items: center;
++      font-weight: 800;
++      letter-spacing: 0.02em;
++      color: #fff;
++      box-shadow: 0 10px 30px var(--glow);
++    }
++
++    .track h3 {
++      margin: 0;
++      font-size: 16px;
++    }
++
++    .track small {
++      color: var(--muted);
++    }
++
++    audio {
++      width: 100%;
++      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
++    }
++
++    footer {
++      margin-top: 26px;
++      text-align: center;
++      color: var(--muted);
++      font-size: 14px;
++    }
++
++    footer span {
++      color: #d1c8ff;
++      font-weight: 700;
++    }
++
++    @media (max-width: 860px) {
++      .hero {
++        grid-template-columns: 1fr;
++      }
++    }
++  </style>
++</head>
++<body>
++  <main class="shell">
++    <section class="hero card">
++      <div>
++        <h1>Bienvenido a tu estación chill</h1>
++        <p>
++          Una pequeña lista curada para dejar que las ideas fluyan. Pon los auriculares,
++          respira y deja que las melodías acompañen tu código, tu lectura o tu momento de calma.
++          Descarga el HTML y súbelo a tu hosting o usa los audios locales directamente.
++        </p>
++        <div class="tags">
++          <span class="tag">Lo-fi</span>
++          <span class="tag">Focus</span>
++          <span class="tag">Relax</span>
++        </div>
++        <div class="actions">
++          <a class="cta" href="#playlist" aria-label="Ir a la lista de reproducción">Escuchar ahora →</a>
++          <a class="cta secondary" href="index.html" download aria-label="Descargar la página para subirla a tu hosting">Descargar página</a>
++        </div>
++      </div>
++      <div class="visual">
++        <div class="visual-content">
++          <h2>Pequeñas olas de sonido</h2>
++          <p>Paquetes de música listos para reproducir en bucle. Cada pista está descargada en local, así que nada te distrae.</p>
++        </div>
++      </div>
++    </section>
++
++    <section id="playlist" class="card">
++      <div class="playlist-header">
++        <h2 class="playlist-title">Lista de reproducción</h2>
++        <span class="pill">4 pistas locales</span>
++      </div>
++
++      <div class="grid">
++        <article class="track" data-track>
++          <div class="track-header">
++            <div class="badge">01</div>
++            <div>
++              <h3>Horizonte</h3>
++              <small>Melodía tranquila para arrancar el día</small>
++            </div>
++          </div>
++          <audio controls preload="metadata" src="musica1.mp3"></audio>
++        </article>
++
++        <article class="track" data-track>
++          <div class="track-header">
++            <div class="badge">02</div>
++            <div>
++              <h3>Niebla violeta</h3>
++              <small>Un fondo suave para leer o escribir</small>
++            </div>
++          </div>
++          <audio controls preload="metadata" src="musica2.mp3"></audio>
++        </article>
++
++        <article class="track" data-track>
++          <div class="track-header">
++            <div class="badge">03</div>
++            <div>
++              <h3>Luces bajas</h3>
++              <small>Ritmo constante para entrar en flow</small>
++            </div>
++          </div>
++          <audio controls preload="metadata" src="musica3.mp3"></audio>
++        </article>
++
++        <article class="track" data-track>
++          <div class="track-header">
++            <div class="badge">04</div>
++            <div>
++              <h3>Medianoche</h3>
++              <small>Para cerrar la jornada con calma</small>
++            </div>
++          </div>
++          <audio controls preload="metadata" src="musica4.mp3"></audio>
++        </article>
++      </div>
++    </section>
++
++    <footer>
++      Creado con calma y buena vibra • <span>Estación Chill</span>
++    </footer>
++  </main>
++
++  <script>
++    const tracks = document.querySelectorAll('[data-track]');
++    const audios = Array.from(document.querySelectorAll('audio'));
++
++    function setActive(element) {
++      tracks.forEach(track => track.classList.toggle('active', track === element));
++    }
++
++    audios.forEach(audio => {
++      audio.addEventListener('play', () => {
++        audios.forEach(other => {
++          if (other !== audio) {
++            other.pause();
++          }
++        });
++        setActive(audio.closest('[data-track]'));
++      });
++
++      audio.addEventListener('ended', () => setActive(null));
++      audio.addEventListener('pause', () => {
++        if (!audio.closest('[data-track]').contains(document.activeElement)) {
++          setActive(null);
++        }
++      });
++    });
++  </script>
++</body>
++</html>
